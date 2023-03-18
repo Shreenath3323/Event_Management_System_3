@@ -42,7 +42,7 @@
 						// // $ii=imageCreateFromString($bb);
 						
 						
-						// echo "<td>".'<img src="data:image/png;base64,'.base64_encode($row['event_photo']).'" width=100px height=100px/>'."</td>";					
+						echo "<td>".'<img src="data:image/*;base64,'.base64_encode($row['event_photo']).'" width=100px height=100px/>'."</td>";					
 						
 						// echo "<td>".'<img src="data:image/png;charset=utf8;base64,'.base64_encode($row['event_photo']).'" width=100px height=100px/>'."</td>";
 						echo "<td>"."<img src=".$row['event_photo']." width=100px height=100px>"."</td>";
