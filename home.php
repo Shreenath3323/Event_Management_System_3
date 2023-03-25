@@ -14,10 +14,10 @@
 		?></b>
 		<br><br>
 		
-		<a href="event_view.php">
+		<a href="event/event_view.php">
 			<button>View Events</button>
 		</a>
-		<a href="event_manage.php">
+		<a href="event/event_manage.php">
 			<button>Manage Events</button>
 		</a>
 

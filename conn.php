@@ -1,8 +1,8 @@
 <?php
-	$sname="localhost";
-	$uname="root";
-	$pass="3323";
-	$dbname="event_management";
+	$sname="eventmanagements.c7vgryleb9mf.us-east-1.rds.amazonaws.com";
+	$uname="admin";
+	$pass="password";
+	$dbname="eventmanagement";
 	
 	$conn=mysqli_connect($sname,$uname,$pass,$dbname);
 	
