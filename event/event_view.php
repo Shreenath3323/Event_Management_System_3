@@ -6,7 +6,7 @@
 
 	include "../conn.php";
 
-	function qr_code($event_name)
+	function qr_code($event_id)
     {
         $options = new QROptions(
             [
@@ -15,8 +15,20 @@
               'version' => 5,
             ]
         );
-  
-        $qrcode = (new QRCode($options))->render($event_name);
+		if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+			$url = "https://";   
+		else  
+			$url = "http://";   
+		// Append the host(domain name, ip) to the URL.   
+		$url.= $_SERVER['HTTP_HOST'];   
+		
+		// Append the requested resource location to the URL   
+		$url.= $_SERVER['REQUEST_URI'];    
+		
+		//echo $url;
+		$redirec_url = strstr($url, 'event_management', true) . 'event_management';
+		$redirec_url=$redirec_url."/api/RegisterEvent.php?event_id=".$event_id;
+        $qrcode = (new QRCode($options))->render($redirec_url);
 		$src=$qrcode;
         return $src;
     }
@@ -57,7 +69,7 @@
 						echo "<td> <img src='".$row["event_photo_link"]."' width=100px height=100px></td>";
 						echo "<td>".$row["event_fees"]."</td>";
 						echo "<td>".$row["modifiedBy"]."</td>";
-						$src=qr_code($row["event_name"]);
+						$src=qr_code($row["id"]);
 						echo "<td>"."<img src=".$src." width=100px height=100px>"."</td>";
 					echo "</tr>";	
 				}
