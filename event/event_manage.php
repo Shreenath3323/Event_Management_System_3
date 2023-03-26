@@ -42,7 +42,6 @@
 						echo "<td>".$row["event_description"]."</td>";
 						echo "<td>".$row["event_date"]."</td>";
 						echo "<td>".$row["event_photo_link"]."</td>";
-						// echo "<td>"."<img src=".$row['event_photo']." width=100px height=100px>"."</td>";
 						echo "<td>".$row["event_fees"]."</td>";
 						echo "<td>".$row["modifiedBy"]."</td>";
 			?>
