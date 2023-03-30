@@ -48,7 +48,7 @@
                         }
                     }
                 }                                
-                request.open("GET","<%=application.getContextPath()%>/GetUserDetails?enroll="+enrollment,true);
+                request.open("GET","<?php echo $global_url;?>/api/GetUserDetails.php?enroll="+enrollment,true);
                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 request.send();
             }
@@ -93,6 +93,9 @@
                     if (this.readyState == 4 && this.status == 200) 
                     {
                         responseJson=JSON.parse(this.responseText);
+                        alert(responseJson);
+                        alert(this.responseText);
+                       
                         console.log(responseJson);
                         if(responseJson.status=="created")
                         {
@@ -144,7 +147,7 @@
                         }
                     }
                 }                                
-                request.open("POST","<%=application.getContextPath()%>/CreatePayment",true);
+                request.open("POST","<?php echo $global_url?>/api/CreatePayment.php",true);
                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 data="enroll="+enroll_id+"&event_id="+event_id+"&amt="+amt+"&date="+currentdate+"&curtime="+curtime;
                 request.send(data);
@@ -161,7 +164,7 @@
                             alert(this.responseText);
                         }
                     }                                
-                    request.open("POST","<%=application.getContextPath()%>/UpdatePayment",true);
+                    request.open("POST","<?php echo $global_url?>/api/UpdatePayment.php",true);
                     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     data="order="+order+"&payment="+payment+"&status="+status+"&paidtime="+paidTime;
                     request.send(data);
