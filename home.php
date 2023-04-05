@@ -21,6 +21,10 @@
 			<button>Manage Events</button>
 		</a>
 
+		<a href="user_info.php">
+			<button>User Information</button>
+		</a>
+
 		<a href="logout.php">
 			<button>Logout</button>
 		</a>

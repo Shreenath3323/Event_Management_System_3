@@ -25,7 +25,6 @@
 				<th>Event_fees</th>
 				<th>Modify_by</th>
 				<th>Edit</th>
-				<th>Delete</th>
 			</tr>
 			
 			<?php
@@ -54,15 +53,7 @@
 								<button>Edit</button>
 							</a>
 						</td>
-						<td>
-							<a href="event_delete.php?id=
-								<?php
-									echo $row['id'];
-								?>
-							">
-								<button>Delete</button>
-							</a>
-						</td>
+						
 							<?php
 								echo "</tr>";	
 					}
