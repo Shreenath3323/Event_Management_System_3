@@ -8,7 +8,7 @@
        $sql = $sql . "FROM event_registration INNER JOIN user ";
        $sql = $sql . "on event_registration.enrollment=user.enrollment ";
        $sql = $sql . "inner join event on event_registration.event_id=event.id ";
-       $sql = $sql . "INNER JOIN transaction ON event_registration.transaction_id=transaction.transaction_id where user.enrollment LIKE '$event_name%'";
+       $sql = $sql . "INNER JOIN transaction ON event_registration.transaction_id=transaction.transaction_id where event.event_name LIKE '$event_name%'";
        $result = $conn->query($sql);
        while ($row = $result->fetch_assoc()) {
               $res1[] = $row;

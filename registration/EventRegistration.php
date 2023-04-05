@@ -162,7 +162,7 @@
                         if (this.readyState == 4 && this.status == 200) 
                         {
                             alert(this.responseText);
-                            location.href("/");
+                            location.href="../";
                         }
                     }                                
                     request.open("POST","<?php echo $global_url?>/api/UpdatePayment.php",true);
