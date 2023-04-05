@@ -221,6 +221,7 @@
         <input type="text" name="lname_val" placeholder="Search by last name" onchange="searchByLName(this)"/>
         <input type="text" name="enrollment_val" placeholder="Search by Enrollment Number" onchange="searchByEnroll(this)"/>
 		Event Name: <select name="event_names" onclick="getByEvent(this)"></select>
+        <input type="button" onclick="location.reload()" value="Reset" />
         <table border="1" id="tableInfo">
         <tr>
             <th>Registration id</th>
