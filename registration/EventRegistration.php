@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include "../controller.php";
+
     if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
         $url = "https://";   
     else  
@@ -14,7 +16,7 @@
     $global_url = strstr($url, 'event_management', true) . 'event_management';
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,6 +25,7 @@
             function checkEnrollment(enroll)
             {
                 enrollment=enroll.value;
+                
                 request=new XMLHttpRequest();
                 request.onreadystatechange=function()
                 {
@@ -30,6 +33,7 @@
                     {                       
                         if(this.responseText)
                         {
+                            alert(this.responseText)
                             jsonresp=JSON.parse(this.responseText);
                             console.log(jsonresp)
                             document.f1.fname.value=jsonresp.fname;
@@ -48,7 +52,7 @@
                         }
                     }
                 }                                
-                request.open("GET","<?php echo $global_url;?>/api/GetUserDetails.php?enroll="+enrollment,true);
+                request.open("GET","<?php echo $global_url;?>/api/<?php echo $file_GetUserDetails ?>?enroll="+enrollment,true);
                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 request.send();
             }
@@ -78,7 +82,7 @@
                         CheckEventHistroy(event_id,enroll_id,fname,lname,email,mobile,currentdate,curtime)
                     }
                 }                                
-                request.open("POST","<?php echo $global_url?>/api/VerifyUser.php",true);
+                request.open("POST","<?php echo $global_url?>/api/<?php echo $file_VerifyUser ?>",true);
                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 data="enroll="+enroll_id+"&fname="+fname+"&lname="+lname+"&gender="+gender+"&email="+email+"&mob="+mobile+"&dept="+department+"&course="+course;
                 request.send(data);
@@ -147,7 +151,7 @@
                         }
                     }
                 }                                
-                request.open("POST","<?php echo $global_url?>/api/CreatePayment.php",true);
+                request.open("POST","<?php echo $global_url?>/api/<?php echo $file_CreatePayment ?>",true);
                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 data="enroll="+enroll_id+"&event_id="+event_id+"&amt="+amt+"&date="+currentdate+"&curtime="+curtime;
                 request.send(data);
@@ -165,7 +169,7 @@
                             location.href="../";
                         }
                     }                                
-                    request.open("POST","<?php echo $global_url?>/api/UpdatePayment.php",true);
+                    request.open("POST","<?php echo $global_url?>/api/<?php echo $file_UpdatePayment ?>",true);
                     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     data="order="+order+"&payment="+payment+"&status="+status+"&paidtime="+paidTime;
                     request.send(data);
@@ -198,12 +202,12 @@
                             }
                             else
                             {
-                                alert("during the process of payment do not press back button till payment it successfull and redirect to our website")
+                                alert("During the process of payment do not press back button till payment it successfull and redirect to our website")
                                 createPayments(event_id,enroll_id,fname,lname,email,mobile,currentdate,curtime);
                             }
                         }
                     }                                
-                    request.open("GET","<?php echo $global_url?>/api/CheckRegistration.php?event="+event_id+"&enroll="+enroll_id,true);
+                    request.open("GET","<?php echo $global_url?>/api/<?php echo $file_CheckRegistration?>?event="+event_id+"&enroll="+enroll_id,true);
                     request.send();
                 }
                 catch(err)

@@ -1,5 +1,4 @@
 <?php
-    // data="enroll="+123+"&fname="+ssa+"&lname="+oop+"&gender="+male+"&email="+abc @gmail.com+"&mob="+mobile+"&dept="+department+"&course="+course;
     include "../conn.php";
     
     $enroll=$_REQUEST['enroll'];
@@ -12,7 +11,6 @@
     $course=$_REQUEST['course'];
     
     $sql="select * FROM user where enrollment='$enroll'";
-
     $result=$conn->query($sql);
 				
     if($result->num_rows>0)
@@ -33,9 +31,6 @@
         else
         {
             echo "Error".$sql_insert."<br>".mysqli_error($conn);
-        }
-        
-    }
-    
-    
+        }   
+    }  
 ?>

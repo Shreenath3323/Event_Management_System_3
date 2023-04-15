@@ -40,5 +40,3 @@
         }
         mysqli_close($conn);
 ?>
-
-<!-- data="order="+order+"&payment="+payment+"&status="+status+"&paidtime="+paidTime; -->

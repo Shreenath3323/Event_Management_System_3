@@ -4,7 +4,6 @@
     require_once $_SERVER["DOCUMENT_ROOT"]."/event_management/api/vendor/autoload.php";
     use Razorpay\Api\Api;
     
-
     include "../conn.php";
     
     $enroll=$_REQUEST['enroll'];
@@ -15,7 +14,6 @@
     $keyId="rzp_test_qp4uEp2A5RYhgI";
     $keySecret="R9IENBdt2w2RIS63Ibhsq4aK";
     $amt_val=intval($amt);
-
 
     $api = new Api($keyId, $keySecret);
     $orderData = [
@@ -30,14 +28,13 @@
 
     $sql="INSERT INTO transaction (order_id,amount,receipt,status,event_id,enrollment,date,time) VALUES ('$orderid','$amt','rc_1','created','$event_id','$enroll','$date','$curtime')";
     if(mysqli_query($conn,$sql))
-        {
-            $jsonresponse ='{ "id": "'.$orderid.'","amount":'.$orderAmount.',"status":"'.$orderStatus.'" }';
-            echo $jsonresponse;
-        }
-        else
-        {
-            echo "Error".$sql."<br>".mysqli_error($conn);
-        }
-        mysqli_close($conn);
-    
+    {
+        $jsonresponse ='{ "id": "'.$orderid.'","amount":'.$orderAmount.',"status":"'.$orderStatus.'" }';
+        echo $jsonresponse;
+    }
+    else
+    {
+        echo "Error".$sql."<br>".mysqli_error($conn);
+    }
+    mysqli_close($conn);
 ?>

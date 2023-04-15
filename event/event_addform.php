@@ -1,6 +1,12 @@
 <?php
     session_start();
+    if(!isset($_SESSION['username']))
+    {
+        header("Location:../login.php");
+        exit();
+    }
 	include "../conn.php";
+    include "../controller.php";
 
     require 'vendor/autoload.php';
     use Cloudinary\Configuration\Configuration;
@@ -28,7 +34,7 @@
         
         if(mysqli_query($conn,$sql))
         {
-            header("Location:event_view.php");
+            header("Location:$file_event_view");
         }
         else
         {
@@ -43,6 +49,8 @@
         <title>Event adding form</title>
     </head>
     <body>
+    <a href="../<?php echo $file_home ?>"><button>Back</button></a><br>
+
         <form method="POST" enctype="multipart/form-data">
             <h1 align="center">Add New Event</h1>
 

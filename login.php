@@ -1,7 +1,8 @@
 <?php
 	session_start();
 	include "conn.php";
-	
+	include "controller.php";
+
 	if(isset($_POST['submitinfo']))
 	{
 		function validate($data)
@@ -21,12 +22,12 @@
 		if(mysqli_num_rows($result) === 1)
 		{
 			$_SESSION['username']=$uname;//$row['username'];
-			header("Location:home.php");
+			header("Location:$file_home");
 			exit();			
 		}
 		else
 		{
-			header("Location:index.php?error=Incorrect Username or password");
+			header("Location:$file_index?error=Incorrect Username or password");
 			exit();
 		}		
 	}

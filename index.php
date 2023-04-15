@@ -1,6 +1,6 @@
 <?php
-	//include "login.php";
-	
+	// include "$file_login";
+	include "controller.php";
 ?>
 <html>
     <head>
@@ -33,7 +33,7 @@
                         createDropDown(event_name_arr);                         
                     }
                 };                           
-                request.open("GET","/event_management/api/GetUserRegistrationDetail.php",true);
+                request.open("GET","/event_management/api/<?php echo $file_GetUserRegistrationDetail ?>",true);
                 request.send();
             }
             function createDropDown(registerValues)
@@ -79,7 +79,7 @@
                             }                        
                         }
                     };                           
-                    request.open("post","/event_management/api/SearchByFirstName.php",true);
+                    request.open("post","/event_management/api/<?php echo $file_SearchByFirstName ?>",true);
                     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     request.send("fname="+fname);
                 }
@@ -121,7 +121,7 @@
                             }                        
                         }
                     };                           
-                    request.open("post","/event_management/api/SearchByLastName.php",true);
+                    request.open("post","/event_management/api/<?php echo $file_SearchByLastName ?>",true);
                     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     request.send("lname="+lname);
                 }
@@ -163,7 +163,7 @@
                             }                        
                         }
                     };                           
-                    request.open("post","/event_management/api/SearchByEnrollment.php",true);
+                    request.open("post","/event_management/api/<?php echo $file_SearchByEnrollment ?>",true);
                     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     request.send("enroll="+enroll);
                 }
@@ -202,7 +202,7 @@
                             }                        
                         }
                     };                           
-                    request.open("post","/event_management/api/SearchByEventName.php",true);
+                    request.open("post","/event_management/api/<?php echo $file_SearchByEventName ?>",true);
                     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     request.send("event_name="+event_name);
                 }
@@ -215,7 +215,7 @@
     </head>
 	<body onload="getAllData()">
     <form name="f1">
-		<a href="login.php">Login</a>
+		<a href="<?php echo $file_login; ?>">Login</a>
 		<h1>Registrations</h1>
         <input type="text" name="fname_val" placeholder="Search by first name" onchange="searchByFName(this)"/>
         <input type="text" name="lname_val" placeholder="Search by last name" onchange="searchByLName(this)"/>
