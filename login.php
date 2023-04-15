@@ -27,7 +27,7 @@
 		}
 		else
 		{
-			header("Location:$file_index?error=Incorrect Username or password");
+			header("Location:$file_login?error=Incorrect Username or password");
 			exit();
 		}		
 	}
@@ -35,16 +35,36 @@
 
 <html>
 	<head>
+	<meta charset="UTF-8">
 		<title>Login Page</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./style.css">
+
 	</head>
 	
 	<body>
-		<form align="center" method="post">
-			<h1>Login</h1>
+	<form method="post">
+	<div class="box-form">
+	<div class="left">
+		<div class="overlay">
+		<h1>Hello Admin</h1>
+		<p>Welcome to Login Page.</p>
+		</div>
+	</div>
+	<div class="right">
+		<h5><strong>Login</strong></h5>
+		<div class="inputs">
+			<input type="text" name="username" placeholder="Enter Username" required><br>
+			<input type="password" name="password" placeholder="Enter Password" required><br>
+
+		</div>
 			
-			<input type="text" name="username" placeholder="Enter Username" required><br><br>
-			<input type="password" name="password" placeholder="Enter Password" required><br><br>
+			<br><br>
 			
+			
+			<br>
 			<?php
 				if(isset($_GET["error"]))
 				{
@@ -57,10 +77,13 @@
 			<?php
 				}
 			?>
-			
 			<button type="submit" name="submitinfo">
 				Login
 			</button>
-		</form>
+			
+	</div>
+	
+</div>
+</form>
 	</body>
 </html>
