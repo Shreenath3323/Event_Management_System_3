@@ -6,7 +6,6 @@
     $event=$_REQUEST['event'];
     
     $sql="select * FROM event_registration where enrollment='$enroll' and event_id=$event";
-
     $result=$conn->query($sql);
 				
     if($result->num_rows>0)
@@ -16,7 +15,5 @@
     else
     {
         echo "false";   
-    }
-    
-    
+    } 
 ?>

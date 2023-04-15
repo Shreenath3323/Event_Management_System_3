@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include "../conn.php";
+    include "../controller.php";
 
     $event_id=$_REQUEST['event_id'];
 	$sql="SELECT * from event where id=$event_id";
@@ -28,7 +29,7 @@
             
             //echo $url;
             $redirec_url = strstr($url, 'event_management', true) . 'event_management';
-            $redirec_url=$redirec_url."/registration/EventRegistration.php";
+            $redirec_url=$redirec_url."/registration/$file_EventRegistration";
 
             header("Location:$redirec_url");
             exit();

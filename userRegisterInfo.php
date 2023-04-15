@@ -1,5 +1,12 @@
 <?php
 	include "conn.php";
+    include "controller.php";
+    session_start();
+    if(!isset($_SESSION['username']))
+    {
+        header("Location:login.php");
+        exit();
+    }
 ?>
 
 <html>
@@ -8,6 +15,8 @@
 	</head>
 	
 	<body>
+        <a href="<?php echo $file_home ?>"><button>Back</button></a><br>
+
 		<h1>Registrations</h1>
 	
 		<table border="1">
@@ -42,23 +51,25 @@
             if($result->num_rows>0)
             {
                 while($row=$result->fetch_assoc())
-                {
-                    echo "<tr>";
-                        echo "<td>".$row["id"]."</td>";
-                        echo "<td>".$row["event_name"]."</td>";
-                        echo "<td>".$row["event_date"]."</td>";
-                        echo "<td>".$row["event_fees"]."</td>";
-                        echo "<td>".$row["enrollment"]."</td>";
-                        echo "<td>".$row["first_name"]."</td>";
-                        echo "<td>".$row["last_name"]."</td>";
-                        echo "<td>".$row["department"]."</td>";
-                        echo "<td>".$row["course"]."</td>";
-                        echo "<td>".$row["transaction_id"]."</td>";
-                        echo "<td>".$row["payment_id"]."</td>";
-                        echo "<td>".$row["status"]."</td>";
-                        echo "<td>".$row["date"]."</td>";
-                        echo "<td>".$row["paid_time"]."</td>";
-                    echo "</tr>";
+                {?>
+                    <tr>
+                        <td><?php echo $row["id"] ?></td>
+                        <td><?php echo $row["event_name"] ?></td>
+                        <td><?php echo $row["event_date"] ?></td>
+                        <td><?php echo $row["event_fees"] ?></td>
+                        <td><?php echo $row["enrollment"] ?></td>
+                        <td><?php echo $row["first_name"] ?></td>
+                        <td><?php echo $row["last_name"] ?></td>
+                        <td><?php echo $row["department"] ?></td>
+                        <td><?php echo $row["course"] ?></td>
+                        <td><?php echo $row["transaction_id"] ?></td>
+                        <td><?php echo $row["payment_id"] ?></td>
+                        <td><?php echo $row["status"] ?></td>
+                        <td><?php echo $row["date"] ?></td>
+                        <td><?php echo $row["paid_time"] ?></td>
+                    </tr>       
+                
+                    <?php
                 }	
             }
             else
