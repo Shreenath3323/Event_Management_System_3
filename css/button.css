@@ -1,0 +1,18 @@
+.btn {
+       background-color: darkblue;
+       border: brown;
+       color: white;
+       padding: 20px 32px;
+       text-align: center;
+       font-size: 16px;
+       margin: 4px 2px;
+       transition: 0.3s;
+       line-height: 1px;
+       border-radius: 15px;
+       cursor: pointer;
+}
+
+.btn:hover {
+       background-color: red;
+       color: white;
+}

@@ -1,89 +1,92 @@
 <?php
-	session_start();
-	include "conn.php";
-	include "controller.php";
+session_start();
+include "conn.php";
+include "controller.php";
 
-	if(isset($_POST['submitinfo']))
+if (isset($_POST['submitinfo'])) {
+	function validate($data)
 	{
-		function validate($data)
-		{
-			$data=trim($data);
-			$data=stripslashes($data);
-			$data=htmlspecialchars($data);
-			return $data;
-		}
-		
-		$uname=validate($_POST['username']);
-		$pass=validate($_POST['password']);
-		
-		$sql="SELECT * FROM credential WHERE username='$uname' AND password='$pass'";
-		$result=mysqli_query($conn,$sql);
-			
-		if(mysqli_num_rows($result) === 1)
-		{
-			$_SESSION['username']=$uname;//$row['username'];
-			header("Location:$file_home");
-			exit();			
-		}
-		else
-		{
-			header("Location:$file_login?error=Incorrect Username or password");
-			exit();
-		}		
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
 	}
+
+	$uname = validate($_POST['username']);
+	$pass = validate($_POST['password']);
+
+	$sql = "SELECT * FROM credential WHERE username='$uname' AND password='$pass'";
+	$result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($result) === 1) {
+		$_SESSION['username'] = $uname; //$row['username'];
+		header("Location:$file_home");
+		exit();
+	} else {
+		header("Location:$file_login?error=Incorrect Username or password");
+		exit();
+	}
+}
 ?>
 
 <html>
-	<head>
+
+<head>
 	<meta charset="UTF-8">
-		<title>Login Page</title>
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<title>Login Page</title>
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
 
+<body>
+	<div class="container card">
+		<div class="row">
+			<div class="col-sm-6">
+				<img src="images\event-management-concept-management-concept-vector-27207968_3.jpg"
+					style="margin: 12% 37% 4% 12%;" />
+			</div>
+			<div class="col-sm-6">
+				<div class="signinFrm">
+					<form method="post" class="form">
+						<h1 class="title">LOGIN</h1>
+						<img src="images\logo.png"
+							style="width: 50%;border-radius: 54%;margin: 0% 24% 4% 23%;" />
+						<div class="inputContainer">
+							<input type="text" name="username" class="input" placeholder="a"
+								required>
+							<label for="" class="label" style="color:black;">Username</label>
+						</div>
+						<div class="inputContainer">
+							<input type="password" name="password" class="input" placeholder="a"
+								required>
+							<label for="" class="label" style="color:black;">Password</label>
+						</div>
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./style.css">
+						<br>
+						<?php
+						if (isset($_GET["error"])) {
+							?>
+							<p class="error">
+								<?php
+								echo $_GET["error"];
+								?>
+							</p>
+							<?php
+						}
+						?>
+						<button type="submit" name="submitinfo" class="button">
+							<span>
+								Login
+							</span>
+						</button>
 
-	</head>
-	
-	<body>
-	<form method="post">
-	<div class="box-form">
-	<div class="left">
-		<div class="overlay">
-		<h1>Hello Admin</h1>
-		<p>Welcome to Login Page.</p>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="right">
-		<h5><strong>Login</strong></h5>
-		<div class="inputs">
-			<input type="text" name="username" placeholder="Enter Username" required><br>
-			<input type="password" name="password" placeholder="Enter Password" required><br>
+</body>
 
-		</div>
-			
-			<br><br>
-			
-			
-			<br>
-			<?php
-				if(isset($_GET["error"]))
-				{
-			?>
-				<p class="error">
-                <?php
-					echo $_GET["error"];
-				?>
-				</p>
-			<?php
-				}
-			?>
-			<button type="submit" name="submitinfo">
-				Login
-			</button>
-			
-	</div>
-	
-</div>
-</form>
-	</body>
 </html>

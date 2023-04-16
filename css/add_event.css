@@ -1,0 +1,272 @@
+/* body {
+       font-family: Arial, sans-serif;
+       background-color: #f4f4f4;
+
+       background-image: url("../images/illustration-woman-computer-calendar_1.jpg");
+       background-repeat: no-repeat;
+       background-size: cover;
+}
+
+.addEvent {
+       background-color: #fff;
+       padding: 20px;
+       border-radius: 5px;
+       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+       max-width: 500px;
+       margin: 0 auto;
+}
+
+.form {
+       display: grid;
+       grid-gap: 10px;
+}
+
+.title {
+       text-align: center;
+       font-size: 32px;
+       margin-top: 0;
+}
+
+label {
+       font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+       width: 100%;
+       padding: 10px;
+       border-radius: 5px;
+       border: none;
+       background-color: #f4f4f4;
+}
+
+textarea {
+       height: 100px;
+}
+
+button[type="submit"] {
+       background-color: #4CAF50;
+       color: #fff;
+       border: none;
+       padding: 10px 20px;
+       border-radius: 5px;
+       cursor: pointer;
+       font-size: 18px;
+       margin-top: 20px;
+       margin-bottom: 10px;
+}
+
+button[type="submit"]:hover {
+       background-color: #3e8e41;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* Get rid of all default margins/paddings. Set typeface */
+body {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       background-color: white;
+       font-family: "lato", sans-serif;
+       background-image: url("../images/SvWWN_2.png");
+       background-repeat: no-repeat;
+       background-size: cover;
+}
+
+.signupFrm {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh;
+}
+
+.form {
+       background-color: #1d0e0e87;
+       width: 400px;
+       border-radius: 8px;
+       padding: 20px 40px;
+       box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+.title {
+       font-size: 50px;
+       margin-bottom: 32px;
+       text-align: center;
+       font-family: auto;
+       color: #8fabbcb8;
+}
+
+.inputContainer {
+       position: relative;
+       height: 45px;
+       width: 90%;
+       margin-bottom: 17px;
+
+}
+
+.input {
+       position: absolute;
+       top: 0px;
+       left: 0px;
+       height: 100%;
+       width: 100%;
+       border: 1px solid;
+       border-radius: 7px;
+       font-size: 16px;
+       padding: 0 20px;
+       outline: none;
+       background: #00000017;
+       z-index: 1;
+       color: floralwhite;
+}
+
+/* Hide the placeholder texts (a) */
+
+::placeholder {
+       color: transparent;
+}
+
+.label {
+       position: absolute;
+       top: 15px;
+       left: 15px;
+       padding: 0 4px;
+       background-color: none;
+       color: whitesmoke;
+       font-size: 16px;
+       transition: 0.5s;
+       z-index: 0;
+}
+
+.button {
+       border-radius: 4px;
+       background-color: black;
+       border: none;
+       color: #FFFFFF;
+       text-align: center;
+       font-size: 26px;
+       padding: 7px;
+       width: 200px;
+       transition: all 0.5s;
+       cursor: pointer;
+       margin: 5px;
+       border-radius: 22px;
+       font-family: cursive, fantasy;
+       margin-left: 90px;
+}
+
+.button span {
+       cursor: pointer;
+       display: inline-block;
+       position: relative;
+       transition: 0.5s;
+}
+
+.button span:after {
+       content: '\00bb';
+       position: absolute;
+       opacity: 0;
+       top: 0;
+       right: -20px;
+       transition: 0.5s;
+}
+
+.button:hover span {
+       padding-right: 25px;
+}
+
+.button:hover span:after {
+       opacity: 1;
+       right: 0;
+}
+
+.input:focus+.label {
+       top: -7px;
+       left: 3px;
+       z-index: 10;
+       font-size: 14px;
+       font-weight: 600;
+       color: white;
+}
+
+.input:focus {
+       border: 0px solid;
+}
+
+.input:not(:placeholder-shown)+.label {
+       top: -7px;
+       left: 3px;
+       z-index: 10;
+       font-size: 14px;
+       font-weight: 600;
+}
+
+.contentrad {
+       padding: 12px 30px;
+       font-size: 18px;
+}
+
+.aa {
+       border-radius: 4px;
+       background-color: purple;
+       border: none;
+       color: #FFFFFF;
+       text-align: center;
+       font-size: 25px;
+       text-decoration: none;
+       padding: 7px;
+       width: 200px;
+       transition: all 0.5s;
+       cursor: pointer;
+       margin: 135px;
+}
+
+.aa span {
+       cursor: pointer;
+       display: inline-block;
+       position: relative;
+       transition: 0.5s;
+}
+
+.aa span:after {
+       content: '\00bb';
+       position: absolute;
+       opacity: 0;
+       top: 0;
+       right: -20px;
+       transition: 0.5s;
+}
+
+.aa:hover span {
+       padding-right: 25px;
+}
+
+.aa:hover span:after {
+       opacity: 1;
+       right: 0;
+}
+
+.ab {
+       background-color: darkblue;
+       box-shadow: 0 0px;
+       color: white;
+       padding: 3px 23px 7px;
+       position: relative;
+       text-decoration: none;
+       border-radius: 13px;
+       text-transform: uppercase;
+       text-align: -webkit-auto;
+}
+
+.ab:hover {
+       background-color: #ce0606;
+       cursor: pointer;
+}
+
+.ab:active {
+       box-shadow: none;
+       top: 5px;
+}

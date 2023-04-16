@@ -4,10 +4,18 @@
 ?>
 <html>
     <head>
+        <!-- <link rel="stylesheet" href="css/index_file.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script arc="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
         <script>
             function getAllData()
             {
                 table=document.getElementById("tableInfo");
+                tableBody=document.createElement("tbody");
+
                 event_name_arr=[];
                 request=new XMLHttpRequest();
                 request.onreadystatechange=function()
@@ -28,8 +36,21 @@
                                 tablerow.appendChild(tabledata);
                             }
                             
-                            table.appendChild(tablerow);
-                        }     
+                            tableBody.appendChild(tablerow);
+                            
+                        }  
+                            table.appendChild(tableBody);
+                            $(document).ready(function () {
+            $('#tableInfo').DataTable({
+                pagingType: 'full_numbers',
+                lengthMenu: [
+            [5,10, 25, 50, -1],
+            [5,10, 25, 50, 'All'],
+        ],
+            });
+        });
+                            
+                           
                         createDropDown(event_name_arr);                         
                     }
                 };                           
@@ -222,7 +243,8 @@
         <input type="text" name="enrollment_val" placeholder="Search by Enrollment Number" onchange="searchByEnroll(this)"/>
 		Event Name: <select name="event_names" onclick="getByEvent(this)"></select>
         <input type="button" onclick="location.reload()" value="Reset" />
-        <table border="1" id="tableInfo">
+        <table id="tableInfo" class="display cell-border tablefont">
+        <thead>
         <tr>
             <th>Registration id</th>
             <th>Event Name</th>
@@ -239,6 +261,19 @@
             <th>Payment Date</th>
             <th>Payment Time</th> 
         </tr>
+    </thead>
+        </table>
+        <script>
+        // $(document).ready(function () {
+        //     $('#tableInfo').DataTable({
+        //         pagingType: 'full_numbers',
+        //         lengthMenu: [
+        //     [5,10, 25, 50, -1],
+        //     [5,10, 25, 50, 'All'],
+        // ],
+        //     });
+        // });
+    </script>
         </form>
 	</body>
 </html>
