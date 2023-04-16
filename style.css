@@ -1,4 +1,4 @@
-body {
+/* body {
   background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
   background-size: cover;
   background-repeat: no-repeat;
@@ -34,7 +34,7 @@ body {
   color: #FFFFFF;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("https://i.pinimg.com/736x/5d/73/ea/5d73eaabb25e3805de1f8cdea7df4a42--tumblr-backgrounds-iphone-phone-wallpapers-iphone-wallaper-tumblr.jpg");
+  background-image: url("images/illustration-woman-computer-calendar_1.jpg");
   overflow: hidden;
 }
 .box-form .left .overlay {
@@ -46,7 +46,7 @@ body {
   box-sizing: border-box;
 }
 .box-form .left .overlay h1 {
-  font-size: 10vmax;
+  font-size: 8vmax;
   line-height: 1;
   font-weight: 900;
   margin-top: 40px;
@@ -79,7 +79,7 @@ body {
   }
 }
 .box-form .right h5 {
-  font-size: 6vmax;
+  font-size: 4vmax;
   line-height: 0;
 }
 .box-form .right p {
@@ -161,4 +161,4 @@ label span.text-checkbox {
 
 label input[type="checkbox"] {
   display: none;
-}
+} */
