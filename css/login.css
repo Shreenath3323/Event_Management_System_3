@@ -2,11 +2,13 @@
 
 /* Get rid of all default margins/paddings. Set typeface */
 body {
+  color: aliceblue;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: white;
   font-family: "lato", sans-serif;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(234, 242, 242, 1) 47%, rgba(104, 95, 156, 1) 100%);
 }
 
 .signinFrm {
@@ -18,7 +20,7 @@ body {
 }
 
 .form {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.538);
   width: 400px;
   border-radius: 8px;
   padding: 20px 40px;
@@ -30,7 +32,7 @@ body {
   margin-bottom: 32px;
   text-align: center;
   font-family: emoji;
-  color:gold;
+  color: rgb(56, 48, 2);
 }
 
 .inputContainer {
@@ -43,13 +45,14 @@ body {
 
 .input {
   position: absolute;
+  color: black;
   top: 0px;
   left: 0px;
   height: 100%;
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.271);
   border-radius: 7px;
-  font-size: 16px;
+  font-size: 25px;
   padding: 0 20px;
   outline: none;
   background: none;
@@ -67,7 +70,7 @@ body {
   top: 15px;
   left: 15px;
   padding: 0 4px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.27);
   color: black;
   font-size: 16px;
   transition: 0.5s;
@@ -84,7 +87,7 @@ body {
 }
 
 .input:focus {
-  border: 2px solid rgba(255, 166, 0, 0.596);
+  border: 2px solid rgba(255, 166, 0, 0.11);
 }
 
 .input:not(:placeholder-shown)+.label {
@@ -142,7 +145,7 @@ body {
 
 .button {
   border-radius: 4px;
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -184,14 +187,21 @@ body {
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    font-size: x-large;
-    /* background: linear-gradient(90deg, rgba(140,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,69,128,1) 100%); */
-    opacity: 0.8;
-    height: 90%;
-    margin-top: 1%;
+  transition: 0.3s;
+  font-size: x-large;
+  /* background: linear-gradient(90deg, rgba(140,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,69,128,1) 100%); */
+  opacity: 0.8;
+  height: 90%;
+  margin-top: 1%;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 cornsilk;
+}
+
+.row {
+  background-image: url("../images/pexels-lumn-399161.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

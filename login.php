@@ -45,14 +45,13 @@ if (isset($_POST['submitinfo'])) {
 		<div class="row">
 			<div class="col-sm-6">
 				<img src="images\event-management-concept-management-concept-vector-27207968_3.jpg"
-					style="margin: 12% 37% 4% 12%;" />
+					style="margin: 32% 37% 30% 12%;" height="400" width="400" />
 			</div>
 			<div class="col-sm-6">
 				<div class="signinFrm">
 					<form method="post" class="form">
 						<h1 class="title">LOGIN</h1>
-						<img src="images\logo.png"
-							style="width: 50%;border-radius: 54%;margin: 0% 24% 4% 23%;" />
+						<img src="images\logo.png" style="width:50%;border-radius: 54%;margin: 0% 24% 4% 23%;" />
 						<div class="inputContainer">
 							<input type="text" name="username" class="input" placeholder="a"
 								required>

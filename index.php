@@ -191,7 +191,7 @@ include "controller.php";
                         }
                         console.log(this.responseText)
                         jsonresp = JSON.parse(this.responseText);
-
+                        tableBody = document.createElement("tbody");
                         for (i = 0; i < jsonresp.length; i++) {
                             tablerow = document.createElement("tr");
                             for (j in jsonresp[i]) {
@@ -200,8 +200,9 @@ include "controller.php";
                                 tabledata.appendChild(value);
                                 tablerow.appendChild(tabledata);
                             }
-                            table.appendChild(tablerow);
+                            tableBody.appendChild(tablerow);
                         }
+                        table.appendChild(tableBody);
                     }
                 };
                 request.open("post", "/event_management/api/<?php echo $file_SearchByEventName ?>", true);

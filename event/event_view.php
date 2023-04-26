@@ -46,7 +46,7 @@ function qr_code($event_id)
 <html>
 <head>
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/viewEvent.css">
 	<link rel="stylesheet" href="../css/button.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />

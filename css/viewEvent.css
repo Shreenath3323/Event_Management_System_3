@@ -16,14 +16,11 @@
 .text {
        font-family: math;
        font-size: 67px;
-       color: #66c3a1;
+       color:aliceblue;
 }
 
 .bg-image {
-       /* The image used */
-       /*background-image: url("../images/image.jpg");*/
-       /* background-image: url("../images/Metaverse.png"); */
-       background-image: url("../images/pexels-kaique-rocha-125509.jpg");
+       background-image: url("../images/pexels-suzy-hazelwood-1226398.jpg");
        /* Full height */
        height: 100%;
 

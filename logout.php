@@ -3,5 +3,5 @@
 	session_start();
 	session_unset();
 	session_destroy();
-	header("Location:$file_index");
+	header("Location:$file_login");
 ?>
