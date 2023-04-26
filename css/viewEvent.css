@@ -1,8 +1,9 @@
-#urlImg{
+#urlImg {
        text-align: center;
        width: 50px;
-       
-   }
+
+}
+
 .thumbnail:hover {
        position: relative;
        left: 35px;
@@ -10,41 +11,43 @@
        height: auto;
        display: block;
        z-index: 999;
-     }
-.text{
-       font-family: math;
-       color: whitesmoke;
-       font-size: 67px;
 }
+
+.text {
+       font-family: math;
+       font-size: 67px;
+       color:aliceblue;
+}
+
 .bg-image {
-       /* The image used */
-       /*background-image: url("../images/image.jpg");*/
-       background-image: url("../images/Metaverse.png");
+       background-image: url("../images/pexels-suzy-hazelwood-1226398.jpg");
        /* Full height */
        height: 100%;
-       
+
        /* Center and scale the image nicely */
        background-position: center;
        background-repeat: no-repeat;
        background-size: cover;
-     }
+}
+
 .card {
-       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
        transition: 0.3s;
        font-size: x-large;
        background-color: whitesmoke;
        opacity: 0.8;
-     }
-     
-     .card:hover {
+}
+
+.card:hover {
        box-shadow: 0 8px 16px 0 cornsilk;
-     }
-     
-     .container {
+}
+
+.container {
        padding: 2px 16px;
        color: black;
-     }
-.tablefont{
+}
+
+.tablefont {
        color: black;
        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
        font-weight: 800;

@@ -1,0 +1,223 @@
+body {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       background-color: rgba(236, 229, 229, 0.949);
+       font-family: "lato", sans-serif;
+       background-image: url("../images/fabio-oyXis2kALVg-unsplash.jpg");
+       background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
+}
+
+.form {
+       background-color: #f6f8f839;
+       width: 1000px;
+       border-radius: 8px;
+       padding: 20px 40px;
+       box-shadow: 0 10px 25px rgba(236, 237, 239, 0.558);
+}
+
+.signupFrm {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh;
+}
+
+.title {
+       font-size: 50px;
+       margin-bottom: 1px;
+       text-align: center;
+       font-family: sans-serif;
+       color: #f9fafc;
+}
+
+.inputContainer {
+       position: relative;
+       height: 40px;
+       width: 90%;
+       border-radius: 14px;
+       margin-bottom: 0px;
+}
+
+.label1 {
+       font-size: 17px;
+       color: #e7e7f0;
+       background-color: #0e0f11ab;
+       border-radius: 5px;
+       margin-bottom: 9px;
+       padding-left: 9px;
+       padding-right: 9px;
+}
+
+.input {
+       position: absolute;
+       /* font-family: cursive; */
+       top: 0px;
+       left: 0px;
+       height: 90%;
+       width: 90%;
+       border: 1px solid;
+       border-radius: 7px;
+       font-size: 18px;
+       padding: 0 20px;
+       outline: none;
+       background: #e2dcdcbc;
+       z-index: 1;
+       color: rgb(27, 26, 26);
+}
+
+.input-dis {
+       position: absolute;
+       /* font-family: cursive; */
+       top: 0px;
+       left: 0px;
+       height: 90%;
+       width: 90%;
+       border: 1px solid;
+       border-radius: 7px;
+       font-size: 16px;
+       padding: 0 20px;
+       outline: none;
+       background: #0f0f0fbe;
+       z-index: 1;
+       color: rgb(253, 251, 251);
+}
+
+.button {
+       border-radius: 4px;
+       background-color: black;
+       border: none;
+       color: #FFFFFF;
+       text-align: center;
+       font-size: 26px;
+       padding: 7px;
+       width: 200px;
+       transition: all 0.5s;
+       cursor: pointer;
+       margin: 5px;
+       border-radius: 22px;
+       font-family: cursive, fantasy;
+       margin-left: 90px;
+}
+
+.button span {
+       cursor: pointer;
+       display: inline-block;
+       position: relative;
+       transition: 0.5s;
+}
+
+.button span:after {
+       content: '\00bb';
+       position: absolute;
+       opacity: 0;
+       top: 0;
+       right: -20px;
+       transition: 0.5s;
+}
+
+.button:hover span {
+       padding-right: 25px;
+}
+
+.button:hover span:after {
+       opacity: 1;
+       right: 0;
+}
+
+.input:focus+.label {
+       top: -7px;
+       left: 3px;
+       z-index: 10;
+       font-size: 14px;
+       font-weight: 600;
+       color: white;
+}
+
+.input:focus {
+       border: 0px solid;
+}
+
+.input:not(:placeholder-shown)+.label {
+       top: -7px;
+       left: 3px;
+       z-index: 10;
+       font-size: 14px;
+       font-weight: 600;
+}
+
+.switch-field {
+       display: flex;
+}
+
+.switch-field input[type="radio"] {
+       display: none;
+}
+
+.switch-field label {
+       display: inline-block;
+       background-color: #e4e4e437;
+       color: #060000;
+       font-size: 16px;
+       padding: 5px 10px;
+       border-radius: 50px;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+}
+
+.switch-field label:hover {
+       background-color: #ccc;
+}
+
+.switch-field input[type="radio"]:checked+label {
+       background-color: #333;
+       color: #fff;
+}
+
+
+.flip-card {
+       background-color: transparent;
+       width: 300px;
+       height: 300px;
+       perspective: 1000px;
+}
+
+.flip-card-inner {
+       position: relative;
+       width: 100%;
+       height: 100%;
+       text-align: center;
+       transition: transform 0.6s;
+       transform-style: preserve-3d;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+       transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+       position: absolute;
+       width: 100%;
+       height: 100%;
+       -webkit-backface-visibility: hidden;
+       backface-visibility: hidden;
+}
+
+.flip-card-front {
+       background-color: #bbb;
+       color: black;
+}
+
+.flip-card-back {
+       background-color: #2980b9;
+       color: white;
+       transform: rotateY(180deg);
+}
+.photo
+{
+       height: 300px;
+       width: 300px;
+}
