@@ -23,7 +23,7 @@ if (!isset($_SESSION['username'])) {
 
 <body class="bg-image">
     <center>
-        <h1 class="text">Registration</h1>
+        <h1 class="text">Students</h1>
     </center>
     <div class="card">
         <div class="container">

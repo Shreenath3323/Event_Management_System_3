@@ -1,7 +1,7 @@
 <?php
 	$sname="eventmanagements.c7vgryleb9mf.us-east-1.rds.amazonaws.com";
 	$uname="admin";
-	$pass="qJ3b7sd8";
+	$pass="sLya3us0ub1a_i1a";
 	$dbname="event_management";
 	
 	$conn=mysqli_connect($sname,$uname,$pass,$dbname);

@@ -23,7 +23,8 @@
     }
     else
     {
-        echo "Error".$sql."<br>".mysqli_error($conn);
+        //echo "Error".$sql."".mysqli_error($conn);
+        echo '{}';
     }
     mysqli_close($conn);
 ?>
