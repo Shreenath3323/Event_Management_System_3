@@ -11,7 +11,7 @@ body {
 }
 
 .form {
-       background-color: #f6f8f839;
+       background-color: #dde5e59d;
        width: 1000px;
        border-radius: 8px;
        padding: 20px 40px;
@@ -30,7 +30,7 @@ body {
        margin-bottom: 1px;
        text-align: center;
        font-family: sans-serif;
-       color: #f9fafc;
+       color: #020203;
 }
 
 .inputContainer {
