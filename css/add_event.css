@@ -71,7 +71,7 @@ body {
        padding: 0;
        background-color: white;
        font-family: "lato", sans-serif;
-       background-image: url("../images/SvWWN_2.png");
+       background-image: url("../images/pexels-pixabay-158829.jpg");
        background-repeat: no-repeat;
        background-size: cover;
 }
@@ -84,7 +84,7 @@ body {
 }
 
 .form {
-       background-color: #1d0e0e87;
+       background-color: #141111cf;
        width: 400px;
        border-radius: 8px;
        padding: 20px 40px;
@@ -96,15 +96,14 @@ body {
        margin-bottom: 32px;
        text-align: center;
        font-family: auto;
-       color: #8fabbcb8;
+       color: #ffffff;
 }
 
 .inputContainer {
        position: relative;
        height: 45px;
        width: 90%;
-       margin-bottom: 17px;
-
+       margin-bottom: 25px;
 }
 
 .input {
@@ -197,7 +196,7 @@ body {
 }
 
 .input:not(:placeholder-shown)+.label {
-       top: -7px;
+       top: -20px;
        left: 3px;
        z-index: 10;
        font-size: 14px;

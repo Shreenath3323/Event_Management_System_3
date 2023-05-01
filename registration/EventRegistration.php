@@ -26,58 +26,112 @@ $global_url = strstr($url, 'event_management', true) . 'event_management';
     <script>
         function checkEnrollment(enroll) {
             enrollment = enroll.value;
-
-            request = new XMLHttpRequest();
-            request.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    if (this.responseText) {
-                        //alert(this.responseText=="{}")
-                        if (this.responseText != "{}") {
-                            jsonresp = JSON.parse(this.responseText);
-                            document.f1.fname.value = jsonresp.fname;
-                            document.f1.lname.value = jsonresp.lname;
-                            document.f1.email.value = jsonresp.email;
-                            document.f1.mobile.value = jsonresp.mobile;
-                            gender = jsonresp.gender;
-                            if (jsonresp.gender == 'Male') {
-                                document.getElementById("male").checked = true;
-                            }
-                            else {
-                                document.getElementById("female").checked = true
+            var regex = /[^a-zA-Z0-9]/;
+            testcase = regex.test(enrollment);
+            if (!(testcase)) {
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        if (this.responseText) {
+                            //alert(this.responseText=="{}")
+                            if (this.responseText != "{}") {
+                                jsonresp = JSON.parse(this.responseText);
+                                document.f1.fname.value = jsonresp.fname;
+                                document.f1.lname.value = jsonresp.lname;
+                                document.f1.email.value = jsonresp.email;
+                                document.f1.mobile.value = jsonresp.mobile;
+                                gender = jsonresp.gender;
+                                if (jsonresp.gender == 'Male') {
+                                    document.getElementById("male").checked = true;
+                                }
+                                else {
+                                    document.getElementById("female").checked = true
+                                }
                             }
                         }
                     }
                 }
+                request.open("GET", "<?php echo $global_url; ?>/api/<?php echo $file_GetUserDetails ?>?enroll=" + enrollment, true);
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                request.send();
             }
-            request.open("GET", "<?php echo $global_url; ?>/api/<?php echo $file_GetUserDetails ?>?enroll=" + enrollment, true);
-            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            request.send();
+            else {
+                alert("Enrollment can not contain special symbol")
+                enroll.value = "";
+                enroll.focus();
+            }
         }
-        function checkRegistration() {
-            event_id = document.f1.event_id.value;
+        function valcheckValesN() {
             enroll_id = document.f1.enroll_no.value;
-            fname = document.f1.fname.value;
-            lname = document.f1.lname.value;
-            gender = document.f1.gender.value;
-            email = document.f1.email.value;
-            mobile = document.f1.mobile.value;
-            departmentindex = document.f1.department.options.selectedIndex;
-            department = document.f1.department.options[departmentindex].value;
-            courseIndex = document.f1.course.options.selectedIndex;
-            course = document.f1.course.options[courseIndex].value;
-            date = new Date();
-            currentdate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-            curtime = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-            request = new XMLHttpRequest();
-            request.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    CheckEventHistroy(event_id, enroll_id, fname, lname, email, mobile, currentdate, curtime)
+            if (enroll_id) {
+                fname = document.f1.fname.value;
+                if (fname) {
+                    lname = document.f1.lname.value;
+                    if (lname) {
+                        email = document.f1.email.value;
+                        if (email) {
+                            mobile = document.f1.mobile.value;
+                            if (mobile) {
+                                return true;
+                            }
+                            else {
+                                alert("mobile number cannot be empty")
+                                document.f1.mobile.focus();
+                                return false;
+                            }
+                        }
+                        else {
+                            alert("Email cannot be empty")
+                            document.f1.email.focus();
+                            return false;
+                        }
+                    }
+                    else {
+                        alert("last name cannot be empty")
+                        document.f1.lname.focus();
+                        return false;
+                    }
+                }
+                else {
+                    alert("First Name cannot be empty");
+                    document.f1.fname.focus();
+                    return false;
                 }
             }
-            request.open("POST", "<?php echo $global_url ?>/api/<?php echo $file_VerifyUser ?>", true);
-            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            data = "enroll=" + enroll_id + "&fname=" + fname + "&lname=" + lname + "&gender=" + gender + "&email=" + email + "&mob=" + mobile + "&dept=" + department + "&course=" + course;
-            request.send(data);
+            else {
+                alert("enrollment number cannot be empty");
+                document.f1.enroll_no.focus();
+                return false;
+            }
+        }
+        function checkRegistration() {
+            chi = valcheckValesN();
+            if (chi) {
+                event_id = document.f1.event_id.value;
+                enroll_id = document.f1.enroll_no.value;
+                fname = document.f1.fname.value;
+                lname = document.f1.lname.value;
+                gender = document.f1.gender.value;
+                email = document.f1.email.value;
+                mobile = document.f1.mobile.value;
+                departmentindex = document.f1.department.options.selectedIndex;
+                department = document.f1.department.options[departmentindex].value;
+                courseIndex = document.f1.course.options.selectedIndex;
+                course = document.f1.course.options[courseIndex].value;
+                date = new Date();
+                currentdate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+                curtime = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        CheckEventHistroy(event_id, enroll_id, fname, lname, email, mobile, currentdate, curtime)
+                    }
+                }
+                request.open("POST", "<?php echo $global_url ?>/api/<?php echo $file_VerifyUser ?>", true);
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                data = "enroll=" + enroll_id + "&fname=" + fname + "&lname=" + lname + "&gender=" + gender + "&email=" + email + "&mob=" + mobile + "&dept=" + department + "&course=" + course;
+                request.send(data);
+            }
         }
         function createPayments(event_id, enroll_id, fname, lname, email, mobile, currentdate, curtime) {
             console.log(currentdate + " " + curtime)
@@ -190,6 +244,25 @@ $global_url = strstr($url, 'event_management', true) . 'event_management';
                 alert(err + "");
             }
         }
+        function checkName(name) {
+            nam = name.value;
+            regex = /[^a-zA-Z]/g;
+            namecase = (regex.test(nam));
+            if (namecase) {
+                alert("values cannot contain numbers or special symbol");
+                name.value = "";
+                name.focus();
+            }
+        }
+        function checkMobile(phone) {
+            mob_val = phone.value;
+            if (mob_val.length != 10) {
+                alert("mobile number should have 10 digits")
+                phone.value = null;
+                phone.focus();
+            }
+        }
+        //oncontextmenu="return false"
     </script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -197,7 +270,7 @@ $global_url = strstr($url, 'event_management', true) . 'event_management';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body oncontextmenu="return false">
+<body>
     <div class="signupFrm">
         <form name="f1" method="post" enctype="multipart/form-data" class="form">
             <h1 class="title">Event Registration</h1><br>
@@ -223,7 +296,7 @@ $global_url = strstr($url, 'event_management', true) . 'event_management';
 
                     <label class="label1">Last Name</label>
                     <div class="inputContainer">
-                        <input type="text" name="lname" class="input" required />
+                        <input type="text" name="lname" onchange="checkName(this)" class="input" required />
                     </div>
                     <label class="label1">Email</label>
                     <div class="inputContainer">
@@ -253,7 +326,7 @@ $global_url = strstr($url, 'event_management', true) . 'event_management';
                     </div>
                     <label class="label1">First Name</label>
                     <div class="inputContainer">
-                        <input type="text" name="fname" class="input" required /></td>
+                        <input type="text" name="fname" onchange="checkName(this)" class="input" required /></td>
                     </div>
                     <label class="label1">Gender</label>
                     <div class="inputContainer">
@@ -266,7 +339,7 @@ $global_url = strstr($url, 'event_management', true) . 'event_management';
                     </div>
                     <label class="label1">Mobile Number</label>
                     <div class="inputContainer">
-                        <input type="number" name="mobile" class="input" required />
+                        <input type="number" name="mobile" onchange="checkMobile(this)" class="input" required />
                     </div>
                     <label class="label1">Course</label>
                     <div class="inputContainer">
@@ -284,13 +357,13 @@ $global_url = strstr($url, 'event_management', true) . 'event_management';
                             </div>
                             <div class="flip-card-back">
                                 <div class="inputContainer">
-                                    <p>Event Name: 
+                                    <p>Event Name:
                                         <?php echo $_SESSION['event_name']; ?>
                                     </p>
-                                    <p>Fees: 
+                                    <p>Fees:
                                         <?php echo $_SESSION['event_fees']; ?>
                                     </p>
-                                    <p>Description: 
+                                    <p>Description:
                                         <?php echo $_SESSION['event_description']; ?>
                                     </p>
                                 </div>

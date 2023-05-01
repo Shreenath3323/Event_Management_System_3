@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     $sql = "INSERT INTO event(event_name,event_description,event_date,event_photo_link,event_fees,modifiedBy) VALUES ('$event_name','$event_description','$event_date','$imageurl','$event_fees','$modifiedby')";
 
     if (mysqli_query($conn, $sql)) {
-        
+
         header("Location:$file_event_view");
     } else {
         echo "Error" . $sql . "<br>" . mysqli_error($conn);
@@ -53,12 +53,24 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/button.css" />
     <link rel="stylesheet" href="../css/add_event.css">
+    <script>
+        function checkFees(Fee) {
+            fee=Fee.value;
+            fee=parseFloat(fee);
+            if(!(fee>0))
+            {
+                alert("fees could not be negative or empty");
+                Fee.value=null;
+                Fee.focus();
+            }
+        }
+    </script>
 </head>
 
 <body>
     <div class="addEvent">
         <div class="signupFrm">
-            <form method="POST" enctype="multipart/form-data" class="form">
+            <form method="POST" name="f1" enctype="multipart/form-data" class="form">
                 <h1 class="title">Add New Event</h1>
 
                 <div class="inputContainer">
@@ -82,19 +94,20 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="inputContainer">
-                    <input type="number" id="event_fees" name="event_fees" placeholder="a" class="input" required>
+                    <input type="number" onchange="checkFees(this)" id="event_fees" name="event_fees" placeholder="a"
+                        class="input" required>
                     <label for="event_fees" class="label">Event Fees</label>
                 </div>
 
                 <button type="submit" name="submit" class="button">
-                <span>
-                 Add Event
-</span>
+                    <span>
+                        Add Event
+                    </span>
                 </button><br>
 
                 <!-- <a href="../<?php //echo $file_home ?>"><button class="btn"><i class="fa fa-home"></i>
                         Previous</button></a><br> -->
-                        <a href="../<?php echo $file_home ?>"class="ab"><i class="fa fa-home"></i> Previous</a>
+                <a href="../<?php echo $file_home ?>" class="ab"><i class="fa fa-home"></i> Previous</a>
             </form>
 </body>
 
