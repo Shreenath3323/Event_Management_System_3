@@ -18,7 +18,7 @@
 }
 .bg-image {
        /* The image used */
-       background-image: url("../images/pexels-tirachard-kumtanom-733852.jpg");
+       background-image: url("../images/pexels-lukas-317356.jpg");
        
 
        /* Full height */
@@ -50,4 +50,8 @@
        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
        font-weight: 800;
        padding: 22px;
+}
+.display cell-border tablefont
+{
+       font-size: 50px;
 }
