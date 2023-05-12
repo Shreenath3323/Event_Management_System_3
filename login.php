@@ -14,6 +14,10 @@ if (isset($_POST['submitinfo'])) {
 
 	$uname = validate($_POST['username']);
 	$pass = validate($_POST['password']);
+	$uname=stripcslashes($uname);
+	$pass=stripcslashes($pass);
+	$uname=mysqli_real_escape_string($conn, $uname);  
+	$pass=mysqli_real_escape_string($conn, $pass);
 
 	$sql = "SELECT * FROM credential WHERE username='$uname' AND password='$pass'";
 	$result = mysqli_query($conn, $sql);
@@ -43,15 +47,14 @@ if (isset($_POST['submitinfo'])) {
 <body>
 	<div class="container card">
 		<div class="row">
-			<div class="col-sm-6">
-				<img src="images\event-management-concept-management-concept-vector-27207968_3.jpg"
-					style="margin: 32% 37% 30% 12%;" height="400" width="400" />
+			<div class="col-sm-4">
+				<!-- <img src="images\Artboard 1.png" height="400" width="400" class="img1" /> -->
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-4">
 				<div class="signinFrm">
 					<form method="post" class="form">
 						<h1 class="title">LOGIN</h1>
-						<img src="images\logo.png" style="width:50%;border-radius: 54%;margin: 0% 24% 4% 23%;" />
+						<img src="images/logo2.avif" style="width:50%;border-radius: 54%;margin: 0% 24% 4% 23%;" />
 						<div class="inputContainer">
 							<input type="text" name="username" class="input" placeholder="a"
 								required>
